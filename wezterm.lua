@@ -4,9 +4,10 @@ local config = {}
 config.default_prog = { "C:\\Program Files\\PowerShell\\7\\pwsh.exe", "-nologo" }
 config.font = wezterm.font("JetBrains Mono", { weight = "DemiBold" })
 config.cell_width = 0.9
-config.tab_bar_at_bottom = true
+config.tab_bar_at_bottom = false
 config.window_decorations = "RESIZE"
 config.colors = {
+
 	foreground = "#ebdbb2",
 	background = "#282828",
 	cursor_bg = "#ebdbb2",
@@ -68,8 +69,20 @@ config.keys = {
 	{
 		key = "b",
 		mods = "CTRL|ALT",
-		action = wezterm.action.CloseCurrentPane({ confirm = true }),
+		action = wezterm.action.CloseCurrentPane({ confirm = false }),
 	},
 }
 
+-- tmux like multiplexing with persistent sessions
+config.default_domain = "unix"
+
+config.window_padding = {
+	left = 8,
+	right = 8,
+	top = 8,
+	bottom = 0,
+}
+
+config.show_update_window = false
+config.check_for_updates = false
 return config
